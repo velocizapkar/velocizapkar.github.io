@@ -11,6 +11,12 @@ body {
   background: #f6f4f1;
   color: #1b1b1b;
   line-height: 1.6;
+  transition: background-color 180ms ease, color 180ms ease;
+}
+
+body.lights-out {
+  background: #161514;
+  color: #ece7df;
 }
 
 a {
@@ -60,12 +66,35 @@ a {
   text-decoration: none;
 }
 
-.nav-links a:hover {
+.nav-links a:hover,
+.lights-toggle:hover {
   text-decoration: underline;
 }
 
 .nav-links .sep {
   color: #999;
+}
+
+body.lights-out .nav-links .sep {
+  color: #77706a;
+}
+
+.lights-toggle {
+  appearance: none;
+  background: none;
+  border: 0;
+  border-radius: 0;
+  color: inherit;
+  cursor: pointer;
+  font: inherit;
+  line-height: inherit;
+  padding: 0;
+  text-align: left;
+}
+
+.lights-toggle:focus-visible {
+  outline: none;
+  text-decoration: underline;
 }
 
 .content {
