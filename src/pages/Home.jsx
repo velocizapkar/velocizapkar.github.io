@@ -1,19 +1,9 @@
 import { Link } from 'react-router-dom';
-import { useEffect, useState } from 'react';
+import PropTypes from 'prop-types';
+import usePageTitle from '../hooks/usePageTitle';
 
-const Home = () => {
-  const [lightsOut, setLightsOut] = useState(() => {
-    if (typeof window === 'undefined') {
-      return false;
-    }
-
-    return window.localStorage.getItem('lights') === 'out';
-  });
-
-  useEffect(() => {
-    document.body.classList.toggle('lights-out', lightsOut);
-    window.localStorage.setItem('lights', lightsOut ? 'out' : 'on');
-  }, [lightsOut]);
+const Home = ({ lightsOut, onToggleLights }) => {
+  usePageTitle('Home');
 
   return (
     <div className="page">
@@ -33,7 +23,7 @@ const Home = () => {
             type="button"
             className="lights-toggle"
             aria-pressed={lightsOut}
-            onClick={() => setLightsOut((isOut) => !isOut)}
+            onClick={onToggleLights}
           >
             lights
           </button>
@@ -48,6 +38,11 @@ const Home = () => {
       </section>
     </div>
   );
+};
+
+Home.propTypes = {
+  lightsOut: PropTypes.bool.isRequired,
+  onToggleLights: PropTypes.func.isRequired,
 };
 
 export default Home;

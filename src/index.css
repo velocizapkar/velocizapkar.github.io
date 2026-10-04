@@ -101,6 +101,32 @@ body.lights-out .nav-links .sep {
   margin-top: 24px;
 }
 
+.post-list {
+  list-style-position: outside;
+  padding-left: 2rem;
+}
+
+.post-list p {
+  margin-bottom: 1rem;
+}
+
+.post-list a {
+  text-decoration: underline;
+}
+
+.post-timestamp {
+  margin-top: 4px;
+}
+
+.post .content p + p {
+  margin-top: 18px;
+}
+
+.agenda-list {
+  margin-left: 1.5rem;
+  padding-left: 1.5rem;
+}
+
 @media (max-width: 500px) {
   .profile-image {
     float: none;
