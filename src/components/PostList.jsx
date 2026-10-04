@@ -13,7 +13,7 @@ const PostList = ({ collection }) => {
       {posts.map((post) => (
         <li key={post.slug}>
           <p>
-            <span>{post.date} | </span>
+            {collection.path !== '/writing' && <span>{post.date} | </span>}
             <Link to={`${collection.path}/${post.slug}`}>{post.title}</Link>
           </p>
         </li>
